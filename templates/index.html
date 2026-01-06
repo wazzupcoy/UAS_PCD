@@ -36,16 +36,5 @@
         <img src="{{ url_for('static', filename='after.png') }}">
     </div>
 </div>
-
-{% if result %}
-<div class="result">
-    <h2>Hasil Analisis</h2>
-    <p>Operator: <b>{{ result.operator }}</b></p>
-    <p>Jumlah Objek: <b>{{ result.jumlah }}</b></p>
-    <p>Luas Terbesar: <b>{{ result.max }}</b> pixel</p>
-    <p>Luas Terkecil: <b>{{ result.min }}</b> pixel</p>
-</div>
-{% endif %}
-
 </body>
 </html>
