@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Modul 5 - Image Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<h1>Modul 5 – Image Analysis</h1>
+
+<form method="POST" enctype="multipart/form-data">
+    <input type="file" name="image" required>
+
+    <select name="operator" required>
+        <option value="erosion">Erosi</option>
+        <option value="dilation">Dilasi</option>
+        <option value="opening">Opening</option>
+        <option value="closing">Closing</option>
+        <option value="filling">Region Filling</option>
+    </select>
+
+    <button type="submit">Analisis</button>
+</form>
+
+<hr>
+
+<div class="container">
+    <div class="box">
+        <h3>Sebelum Analisis</h3>
+        <img src="{{ url_for('static', filename='before.png') }}">
+    </div>
+
+    <div class="box">
+        <h3>Sesudah Analisis</h3>
+        <img src="{{ url_for('static', filename='after.png') }}">
+    </div>
+</div>
+
+{% if result %}
+<div class="result">
+    <h2>Hasil Analisis</h2>
+    <p>Operator: <b>{{ result.operator }}</b></p>
+    <p>Jumlah Objek: <b>{{ result.jumlah }}</b></p>
+    <p>Luas Terbesar: <b>{{ result.max }}</b> pixel</p>
+    <p>Luas Terkecil: <b>{{ result.min }}</b> pixel</p>
+</div>
+{% endif %}
+
+</body>
+</html>
